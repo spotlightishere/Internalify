@@ -1,4 +1,4 @@
-#import "test.h"
+#import <Maps/MapsAppDelegate.h>
 %hook MapsAppDelegate
 
 -(void)statusBarTapped {

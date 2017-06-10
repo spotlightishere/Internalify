@@ -4,6 +4,7 @@ include $(THEOS)/makefiles/common.mk
 
 TWEAK_NAME = MapsDebug
 MapsDebug_FILES = Tweak.xm
+MapsDebug_CFLAGS = -I../Headers
 
 include $(THEOS_MAKE_PATH)/tweak.mk
 

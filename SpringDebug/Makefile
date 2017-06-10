@@ -3,7 +3,8 @@ include $(THEOS)/makefiles/common.mk
 # TARGET = simulator:clang
 
 TWEAK_NAME = SpringDebug
-SpringDebug_FILES = Tweak.xm
+SpringDebug_FILES = *.xm
+SpringDebug_CFLAGS = -I../Headers
 
 include $(THEOS_MAKE_PATH)/tweak.mk
 
