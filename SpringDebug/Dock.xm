@@ -38,12 +38,28 @@ float totalMultiplier = 2.0f;
 	return %orig / (totalMultiplier * 0.1);
 }
 %end
+
+%hook SBIconListView
+-(float)bottomIconInset {
+	// We're increasing the original height by 2 anyway,
+	// so gotta act accordingly
+	// Then because of the label, we can go .20 instead of .25
+	// (or you know, relatively speaking)
+	return %orig / (totalMultiplier * 0.2);
+}
+-(float)verticalIconPadding {
+	// look another thing I have no idea how it works
+	return 10.0f;
+}
+%end
+
 // Move search dots up
 %hook SBIconListPageControl
 -(void)setFrame:(CGRect)frame {
 	%log;
-	CGRect oldFrame = frame;
-	frame.size.height = oldFrame.size.height * totalMultiplier;
+	// I don't know how this works
+	// It does, still don't know
+	frame.size.height = 100.0f;
 	%orig;
 }
 %end
