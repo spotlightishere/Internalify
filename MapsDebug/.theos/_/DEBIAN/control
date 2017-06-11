@@ -1,9 +1,0 @@
-Package: io.github.spotlightishere.internalify
-Name: Internalify
-Depends: mobilesubstrate
-Architecture: iphoneos-arm
-Description: yet another unfinished project
-Author: Spotlight <awesomebing1@gmail.com>
-Section: Tweaks
-Version: 1.1-2+debug
-Installed-Size: 72
