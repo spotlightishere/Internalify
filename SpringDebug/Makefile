@@ -3,7 +3,7 @@ include $(THEOS)/makefiles/common.mk
 # TARGET = simulator:clang
 
 TWEAK_NAME = SpringDebug
-SpringDebug_FILES = Dock.xm Internal.xm
+SpringDebug_FILES = $(wildcard *.xm)
 SpringDebug_CFLAGS = -I../Headers
 SpringDebug_FRAMEWORKS = UIKit CoreGraphics
 

@@ -18,7 +18,7 @@ float totalMultiplier = 2.0f;
   CGContextRef context = UIGraphicsGetCurrentContext();
 
 	// The color below was extracted from iOS 11. #929292
-  CGContextSetFillColorWithColor(context, [[UIColor colorWithRed:0.57 green:0.57 blue:0.57 alpha:1.0] CGColor]);
+  CGContextSetFillColorWithColor(context, [[UIColor colorWithRed:0.57 green:0.57 blue:0.57 alpha:0.7] CGColor]);
   CGContextFillRect(context, rect);
 
   UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
