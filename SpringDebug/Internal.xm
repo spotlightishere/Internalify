@@ -19,8 +19,6 @@
 	%log;
 	if ([capabilityName isEqual:@"SBCanForceDebuggingInfo"]) {
 		return true;
-	} else if ([capabilityName isEqual:@"telephony"]) {
-		return true;
 	}
 	return %orig;
 }
