@@ -5,6 +5,7 @@ include $(THEOS)/makefiles/common.mk
 TWEAK_NAME = SpringDebug
 SpringDebug_FILES = *.xm
 SpringDebug_CFLAGS = -I../Headers
+SpringDebug_FRAMEWORKS = UIKit CoreGraphics
 
 include $(THEOS_MAKE_PATH)/tweak.mk
 
