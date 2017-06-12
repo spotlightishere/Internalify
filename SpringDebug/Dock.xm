@@ -45,7 +45,7 @@ float totalMultiplier = 2.0f;
 	// so gotta act accordingly
 	// Then because of the label, we can go .20 instead of .25
 	// (or you know, relatively speaking)
-	return %orig / (totalMultiplier * 0.2);
+	return %orig / 5;
 }
 -(float)verticalIconPadding {
 	// look another thing I have no idea how it works
