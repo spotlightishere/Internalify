@@ -7,8 +7,7 @@
 }
 %end
 %hook SBIcon
--(id)getIconImage:(int)arg1 {
-  %log;
+-(id)getIconImage:(int)size {
   NSString* bundleID = [self applicationBundleID];
   if (bundleID == nil) {
     HBLogInfo(@"Found app that is most likely Newsstand/another app without an actual icon. Skipping generation.");
@@ -22,26 +21,22 @@
   } else {
     appIcon = %orig;
   }
-  // Use original icon for future reference
+  // Use original ic// on for future reference
   UIImage* origImage = %orig;
-  appIcon = [UIImage imageWithCGImage:[appIcon CGImage]
-                              scale:[origImage scale]
-                                 orientation:[origImage imageOrientation]];
-  // Get rect
-  CGRect rect = CGRectMake(0.0f, 0.0f, origImage.size.width, origImage.size.height);
-  UIGraphicsBeginImageContextWithOptions(rect.size, false, 0);
+   appIcon = [UIImage imageWithCGImage:[appIcon CGImage]
+                               scale:[origImage scale]
+                                  orientation:[origImage imageOrientation]];
+	UIGraphicsBeginImageContextWithOptions(origImage.size, NO, origImage.scale);
+    CGRect imageRect = CGRectMake(0.0f, 0.0f, origImage.size.width, origImage.size.height);
 
-  // Path
-  UIBezierPath* path = [UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:15.0];
-  [path addClip];
-  [path fill];
-  // Draw actual icon
-  [[UIColor clearColor] set];
-  [appIcon drawInRect:rect];
-  UIImage* finalIcon = UIGraphicsGetImageFromCurrentImageContext();
-	UIGraphicsEndImageContext();
+	// Fill replaced app icon in, and then overlay orig to set border.
+	[appIcon drawInRect:imageRect blendMode:kCGBlendModeNormal alpha:1.0f];
+	[origImage drawInRect:imageRect blendMode:kCGBlendModeDestinationIn alpha:1.0f];
 
-  return finalIcon;
+    UIImage* outImage = UIGraphicsGetImageFromCurrentImageContext();
+
+    UIGraphicsEndImageContext();
+	return outImage;
 }
 %end
 
@@ -55,13 +50,5 @@
 }
 - (id)shadowColor {
   return 0;
-}
-%end
-
-
-%hook SBApplicationIcon
--(id)__loadIconImage:(id)arg1 format:(int)arg2 scale:(float)arg3 {
-  %log;
-  return %orig;
 }
 %end

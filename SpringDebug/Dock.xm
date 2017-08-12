@@ -26,8 +26,8 @@ float totalMultiplier = 2.0f;
 
 
   // This looks super hacky. Honestly, it is.
-	// Yes, it's a _UIMappedBitmapImage that's expected.
-	// We're basically casting it here.
+  // Yes, it's a _UIMappedBitmapImage that's expected.
+  // We're basically casting it here.
   return image;
 }
 -(float)topIconInset {
