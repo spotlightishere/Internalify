@@ -26,6 +26,9 @@
 		capabilityStatus = true;
 	} else if ([capabilityName isEqual:@"gas-gauge-battery"]) {
 		capabilityStatus = true;
+	} else if ([capabilityName isEqual:@"opengles-2"]) {
+		// Prevent logging spam
+		return %orig;
 	}
 	HBLogDebug(@"Returned %@ for the capability \"%@\".", 
 		capabilityStatus ? @"true " : @"false", capabilityName);

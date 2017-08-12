@@ -18,3 +18,9 @@
 	return [CommonMethods createFauxBlurWithDimensions: dimensions];
 }
 %end
+%hook SBIconModel
+-(void)addNewsstandIcon {
+	// Goodbye, Newsstand.
+	return;
+}
+%end

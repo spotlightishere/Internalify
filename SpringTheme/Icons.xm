@@ -10,7 +10,7 @@
 -(id)getIconImage:(int)size {
   NSString* bundleID = [self applicationBundleID];
   if (bundleID == nil) {
-    HBLogInfo(@"Found app that is most likely Newsstand/another app without an actual icon. Skipping generation.");
+    HBLogDebug(@"Not generating for app without bundle.");
     return %orig;
   }
   HBLogDebug(@"Generating for ID: %@", bundleID);
