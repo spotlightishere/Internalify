@@ -13,3 +13,8 @@
   return;
 }
 %end
+%hook SBLinenView
+-(UIImage*)squareImageForBounds:(CGRect)dimensions {
+	return [CommonMethods createFauxBlurWithDimensions: dimensions];
+}
+%end

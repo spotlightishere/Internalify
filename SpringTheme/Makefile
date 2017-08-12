@@ -2,10 +2,10 @@ include $(THEOS)/makefiles/common.mk
 
 # TARGET = simulator:clang
 
-TWEAK_NAME = SpringDebug
-SpringDebug_FILES = $(wildcard *.xm) CommonMethods.m
-SpringDebug_CFLAGS = -I../Headers -I.
-SpringDebug_FRAMEWORKS = UIKit CoreGraphics
+TWEAK_NAME = SpringTheme
+SpringTheme_FILES = $(wildcard *.xm) CommonMethods.m
+SpringTheme_CFLAGS = -I../Headers -I.
+SpringTheme_FRAMEWORKS = UIKit CoreGraphics
 
 include $(THEOS_MAKE_PATH)/tweak.mk
 
