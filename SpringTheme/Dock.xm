@@ -14,21 +14,21 @@ float totalMultiplier = 2.0f;
 	CGFloat height = test.size.height * totalMultiplier;
 	HBLogDebug(@"Width: %.2f, height: %.2f, address: %p", width, height, &self);
 	CGRect rect = CGRectMake(0.0f, 0.0f, width, height);
-  UIGraphicsBeginImageContext(rect.size);
-  CGContextRef context = UIGraphicsGetCurrentContext();
+	UIGraphicsBeginImageContext(rect.size);
+	  CGContextRef context = UIGraphicsGetCurrentContext();
 
 	// The color below was extracted from iOS 11. #929292
-  CGContextSetFillColorWithColor(context, [[UIColor colorWithRed:0.57 green:0.57 blue:0.57 alpha:0.7] CGColor]);
-  CGContextFillRect(context, rect);
+	CGContextSetFillColorWithColor(context, [[UIColor colorWithRed:0.57 green:0.57 blue:0.57 alpha:0.7] CGColor]);
+	CGContextFillRect(context, rect);
 
-  UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-  UIGraphicsEndImageContext();
+	UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+	UIGraphicsEndImageContext();
 
 
-  // This looks super hacky. Honestly, it is.
-  // Yes, it's a _UIMappedBitmapImage that's expected.
-  // We're basically casting it here.
-  return image;
+	// This looks super hacky. Honestly, it is.
+	// Yes, it's a _UIMappedBitmapImage that's expected.
+	// We're basically casting it here.
+	return image;
 }
 -(float)topIconInset {
 	// We're increasing the original height by 2 anyway,
